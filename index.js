@@ -1,2 +1,2 @@
-require('./dist/ui-codemirror.min');
-module.exports = UiCodemirrorModule;
+require('./dist/angular-ui-codemirror.min');
+module.exports = 'ui.codemirror';
