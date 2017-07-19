@@ -8,7 +8,7 @@ call ng-annotate -ar tmp\src\ui-codemirror.directive.js -o tmp\ui-codemirror.dir
 call ng-annotate -ar tmp\src\ui-codemirror.module.js -o tmp\ui-codemirror.module.js
 
 ECHO "bundle"
-call browserify .\tmp\ui-codemirror.module.js -o .\dist\ui-codemirror.js -x angular
+call browserify .\tmp\ui-codemirror.module.js -o .\dist\angular-ui-codemirror.js -x angular
 
 ECHO "minify"
-call uglifyjs dist\ui-codemirror.js -o dist\ui-codemirror.min.js -c -m
+call uglifyjs dist\angular-ui-codemirror.js -o dist\angular-ui-codemirror.min.js -c -m
