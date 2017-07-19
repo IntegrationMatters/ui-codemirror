@@ -1,16 +1,12 @@
-'use strict';
-
-/**
- * Binds a CodeMirror widget to a <textarea> element.
- */
-angular.module('ui.codemirror', [])
-  .constant('uiCodemirrorConfig', {})
-  .directive('uiCodemirror', uiCodemirrorDirective);
-
 /**
  * @ngInject
+ *
+ * @param $timeout
+ * @param uiCodemirrorConfig
+ * @returns {{restrict: string, require: string, compile: compile}}
+ * @constructor
  */
-function uiCodemirrorDirective($timeout, uiCodemirrorConfig) {
+export function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
 
   return {
     restrict: 'EA',
