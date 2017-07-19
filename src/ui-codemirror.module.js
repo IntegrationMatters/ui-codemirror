@@ -9,4 +9,4 @@ ngModule
   .directive('uiCodemirror', UiCodemirrorDirective);
 
 let ngModuleName = ngModule.name;
-module.exports.UiCodemirrorModule = ngModuleName;
+export {ngModuleName as UiCodemirrorModule};

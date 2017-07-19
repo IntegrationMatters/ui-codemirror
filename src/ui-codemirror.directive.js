@@ -6,7 +6,7 @@
  * @returns {{restrict: string, require: string, compile: compile}}
  * @constructor
  */
-module.exports = function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
+export function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
 
   return {
     restrict: 'EA',
