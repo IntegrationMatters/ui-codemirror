@@ -3,10 +3,11 @@
  *
  * @param $timeout
  * @param uiCodemirrorConfig
+ * @param CodeMirror
  * @returns {{restrict: string, require: string, compile: compile}}
  * @constructor
  */
-export function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
+export function UiCodemirrorDirective($timeout, uiCodemirrorConfig, CodeMirror) {
 
   return {
     restrict: 'EA',
@@ -14,7 +15,7 @@ export function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
     compile: function compile() {
 
       // Require CodeMirror
-      if (angular.isUndefined(window.CodeMirror)) {
+      if (angular.isUndefined(CodeMirror)) {
         throw new Error('ui-codemirror needs CodeMirror to work... (o rly?)');
       }
 
@@ -64,10 +65,10 @@ export function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
 
     if (iElement[0].tagName === 'TEXTAREA') {
       // Might bug but still ...
-      codemirrot = window.CodeMirror.fromTextArea(iElement[0], codemirrorOptions);
+      codemirrot = CodeMirror.fromTextArea(iElement[0], codemirrorOptions);
     } else {
       iElement.html('');
-      codemirrot = new window.CodeMirror(function(cm_el) {
+      codemirrot = new CodeMirror(function(cm_el) {
         iElement.append(cm_el);
       }, codemirrorOptions);
     }
@@ -78,7 +79,7 @@ export function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
   function configOptionsWatcher(codemirrot, uiCodemirrorAttr, scope) {
     if (!uiCodemirrorAttr) { return; }
 
-    var codemirrorDefaultsKeys = Object.keys(window.CodeMirror.defaults);
+    var codemirrorDefaultsKeys = Object.keys(CodeMirror.defaults);
     scope.$watch(uiCodemirrorAttr, updateOptions, true);
     function updateOptions(newValues, oldValue) {
       if (!angular.isObject(newValues)) { return; }
