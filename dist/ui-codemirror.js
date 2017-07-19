@@ -169,4 +169,4 @@ ngModule.constant('uiCodemirrorConfig', {}).directive('uiCodemirror', _uiCodemir
 
 var ngModuleName = ngModule.name;
 exports.UiCodemirrorModule = ngModuleName;
-},{"./ui-codemirror.directive":1,"angular":undefined}]},{},[1,2]);
+},{"./ui-codemirror.directive":1,"angular":"angular"}]},{},[1,2]);
