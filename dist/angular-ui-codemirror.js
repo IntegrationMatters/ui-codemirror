@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-UiCodemirrorDirective.$inject = ["$timeout", "uiCodemirrorConfig"];
+UiCodemirrorDirective.$inject = ["$timeout", "uiCodemirrorConfig", "CodeMirror"];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -11,10 +11,11 @@ exports.UiCodemirrorDirective = UiCodemirrorDirective;
  *
  * @param $timeout
  * @param uiCodemirrorConfig
+ * @param CodeMirror
  * @returns {{restrict: string, require: string, compile: compile}}
  * @constructor
  */
-function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
+function UiCodemirrorDirective($timeout, uiCodemirrorConfig, CodeMirror) {
 
   return {
     restrict: 'EA',
@@ -22,7 +23,7 @@ function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
     compile: function compile() {
 
       // Require CodeMirror
-      if (angular.isUndefined(window.CodeMirror)) {
+      if (angular.isUndefined(CodeMirror)) {
         throw new Error('ui-codemirror needs CodeMirror to work... (o rly?)');
       }
 
@@ -63,10 +64,10 @@ function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
 
     if (iElement[0].tagName === 'TEXTAREA') {
       // Might bug but still ...
-      codemirrot = window.CodeMirror.fromTextArea(iElement[0], codemirrorOptions);
+      codemirrot = CodeMirror.fromTextArea(iElement[0], codemirrorOptions);
     } else {
       iElement.html('');
-      codemirrot = new window.CodeMirror(function (cm_el) {
+      codemirrot = new CodeMirror(function (cm_el) {
         iElement.append(cm_el);
       }, codemirrorOptions);
     }
@@ -79,7 +80,7 @@ function UiCodemirrorDirective($timeout, uiCodemirrorConfig) {
       return;
     }
 
-    var codemirrorDefaultsKeys = Object.keys(window.CodeMirror.defaults);
+    var codemirrorDefaultsKeys = Object.keys(CodeMirror.defaults);
     scope.$watch(uiCodemirrorAttr, updateOptions, true);
     function updateOptions(newValues, oldValue) {
       if (!angular.isObject(newValues)) {
