@@ -1,4 +1,3 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 UiCodemirrorDirective.$inject = ["$timeout", "uiCodemirrorConfig", "CodeMirror"];
@@ -149,26 +148,3 @@ function UiCodemirrorDirective($timeout, uiCodemirrorConfig, CodeMirror) {
     });
   }
 }
-},{}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.UiCodemirrorModule = undefined;
-
-var _angular = require('angular');
-
-var _angular2 = _interopRequireDefault(_angular);
-
-var _uiCodemirror = require('./ui-codemirror.directive');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ngModule = _angular2.default.module('ui.codemirror', []);
-
-ngModule.constant('uiCodemirrorConfig', {}).directive('uiCodemirror', _uiCodemirror.UiCodemirrorDirective);
-
-var ngModuleName = ngModule.name;
-exports.UiCodemirrorModule = ngModuleName;
-},{"./ui-codemirror.directive":1,"angular":"angular"}]},{},[2]);
