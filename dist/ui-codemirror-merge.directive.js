@@ -5,9 +5,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.UiCodemirrorMergeDirective = UiCodemirrorMergeDirective;
-
-require('codemirror/addon/merge/merge');
-
 /**
  * @ngInject
  *
