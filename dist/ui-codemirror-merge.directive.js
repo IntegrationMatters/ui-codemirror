@@ -5,6 +5,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.UiCodemirrorMergeDirective = UiCodemirrorMergeDirective;
+
+require('codemirror/addon/merge/merge');
+
 /**
  * @ngInject
  *
@@ -32,7 +35,7 @@ function UiCodemirrorMergeDirective($timeout, uiCodemirrorMergeConfig, CodeMirro
 
   function postLink(scope, iElement, iAttrs, ngModel) {
 
-    var codemirrorOptions = angular.extend({ value: iElement.text() }, uiCodemirrorMergeConfig.codemirror || {}, scope.$eval(iAttrs.uiCodemirrorMerge), scope.$eval(iAttrs.uiCodemirrorMergeOpts));
+    var codemirrorOptions = angular.extend({ value: iElement.text() }, uiCodemirrorMergeConfig.codemirror || {}, scope.$eval(iAttrs.uiCodemirrorMerge), scope.$eval(iAttrs.uiCodemirrorOpts), scope.$eval(iAttrs.uiCodemirrorMergeOpts));
 
     var codemirror = newCodemirrorEditor(iElement, codemirrorOptions);
 

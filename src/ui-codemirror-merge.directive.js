@@ -1,3 +1,5 @@
+import 'codemirror/addon/merge/merge';
+
 /**
  * @ngInject
  *
@@ -29,6 +31,7 @@ export function UiCodemirrorMergeDirective($timeout, uiCodemirrorMergeConfig, Co
       { value: iElement.text() },
       uiCodemirrorMergeConfig.codemirror || {},
       scope.$eval(iAttrs.uiCodemirrorMerge),
+      scope.$eval(iAttrs.uiCodemirrorOpts),
       scope.$eval(iAttrs.uiCodemirrorMergeOpts)
     );
 
