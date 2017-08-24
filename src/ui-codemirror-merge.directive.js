@@ -1,5 +1,3 @@
-import 'codemirror/addon/merge/merge';
-
 /**
  * @ngInject
  *
